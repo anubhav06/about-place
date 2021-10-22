@@ -15,4 +15,7 @@ import datetime
 
 # Create your views here.
 def index(request):
-    return HttpResponse('Index loaded!')
+    return render(request, "heritage/index.html")
+
+def newPage(request):
+    pass
