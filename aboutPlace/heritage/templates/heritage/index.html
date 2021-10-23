@@ -35,4 +35,20 @@ This will list all the country pages <br>
         <img src="{% static 'heritage/header-img.png' %}">
     </div>
 </header>
+
+<body>
+    {% for country in countries %}
+    <!-- Don't change the className from 'countryName', it is used to reference in the API calls -->
+    <a href="{% url 'country_page' country %}">
+        <div class="countryName">
+            {{country}}
+        </div>
+    </a>>
+    {% endfor %}
+</body>
+{% endblock %}
+
+
+{% block script %}
+    <script src="{% static 'heritage/script.js' %}"></script>
 {% endblock %}

@@ -28,7 +28,6 @@ def index(request):
             else:
                 entry = Posts(poster = request.user, title = request.POST["title"], content = request.POST["content"], country = request.POST["country"])
                 entry.save()
-                print("testing")
             
         else:
             return HttpResponseNotFound('<h1> The country does not exist! </h1>')    
