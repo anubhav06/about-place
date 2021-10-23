@@ -36,15 +36,18 @@ This will list all the country pages <br>
     </div>
 </header>
 
-<body>
+<body >
     {% for country in countries %}
     <!-- Don't change the className from 'countryName', it is used to reference in the API calls -->
     <a href="{% url 'country_page' country %}">
         <div class="countryName">
             {{country}}
         </div>
-    </a>>
+    </a>
     {% endfor %}
+    {% if countries %}
+        <script> loaded()</script>
+    {% endif %}
 </body>
 {% endblock %}
 

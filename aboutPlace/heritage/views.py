@@ -13,6 +13,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 import datetime
+from json import dumps
 
 from .models import User, Posts
 from .extras import List
@@ -34,11 +35,29 @@ def index(request):
         
         return HttpResponseRedirect(reverse('index')) 
     else:
+        # If a search request is made then return the search view
+        if request.GET.get("q"):
+            return search(request)
+    
         countries = Posts.objects.all().values_list('country', flat=True).distinct()
 
         return render(request, "heritage/index.html", {
             "countries" : countries,
         })
+
+# If something is searched through search bar
+def search(request):
+
+    name = request.GET.get('q')
+
+    try:
+        countries = Posts.objects.filter(country = name).values_list('country', flat=True).distinct()
+    except IntegrityError:
+        countries = None
+
+    return render(request, "heritage/index.html", {
+        "countries" : countries,
+    })
 
 # Login View
 def login_view(request):

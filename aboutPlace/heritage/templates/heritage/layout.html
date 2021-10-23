@@ -31,12 +31,16 @@
             <a href="{% url 'index' %}">P</a>
         </div>
         <ul class="nav__links">
+            <form action="/" method="GET">
+                <input class="search" type="text" name="q" placeholder="Search a country" autocomplete="off" id="form">
+            </form>
+
             {% if user.is_authenticated %}
-            <a href="#"><img src="{% static 'heritage/avatar.svg' %}"></a>
-            <li><a href="{%url 'logout' %}">Log Out</a></li>
+                <a href="#"><img src="{% static 'heritage/avatar.svg' %}"></a>
+                <li><a href="{%url 'logout' %}">Log Out</a></li>
             {% else %}
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
             {% endif %}
         </ul>
     </nav>
