@@ -1,0 +1,21 @@
+{% extends "heritage/layout.html" %}
+
+{% block body %}
+
+    <strong> <h1>  {{country}} </h1> </strong> <br>
+    --------------This place will contain info about the country-----------
+
+    <hr>
+    Place for posts by users: <br><br>
+
+    {% for post in posts %}
+        <div>
+            TITLE : {{post.title}} <br>
+            CONTENT : {{post.content}} <br>
+            COUNTRY : {{post.country}} <br>
+            POSTED AT: {{post.timestamp}} <br>
+            POSTED BY: {{post.poster}} <br>
+        </div> <br><br>
+    {% endfor %}
+
+{% endblock %} 

@@ -104,4 +104,9 @@ def newPage(request):
 
 
 def country_page(request, country):
-    return HttpResponse('<h1> To add posts and info for this country here </h1>')
+
+    posts = Posts.objects.filter(country = country)
+    return render(request, 'heritage/countryPage.html', {
+        "posts" : posts,
+        "country" : country,
+    })
