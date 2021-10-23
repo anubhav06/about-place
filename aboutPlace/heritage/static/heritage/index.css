@@ -26,13 +26,16 @@
   color: #424259;
   font-weight: 400;
   width: 80%;
-  letter-spacing: 1.1px;
   font-weight: 500;
 }
 
 .header__info p span > a {
   font-weight: 700;
   color: #424259;
+}
+
+.header__info p span > a:hover {
+  color: #2f0f0f;
 }
 
 .header__img > img {
