@@ -14,6 +14,7 @@ from django.core.paginator import Paginator
 import datetime
 
 from .models import User
+from .extras import List
 
 # Create your views here.
 def index(request):
@@ -75,4 +76,9 @@ def register(request):
 
 
 def newPage(request):
-    pass
+    
+    # List of countries
+    list = List.list
+    return render(request, "heritage/newPage.html", {
+        "list" : list,
+    }) 
