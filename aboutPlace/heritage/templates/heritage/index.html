@@ -7,6 +7,12 @@
 {% block body %}
     <h1>All Pages</h1>
 
-    This will list all the cultural pages
+    This will list all the country pages <br>
+
+    {% for country in countries %}
+        <a href="{% url 'country_page' country %}">
+            {{country}}
+        </a><br>
+    {% endfor %}
 
 {% endblock %}

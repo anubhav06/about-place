@@ -1,4 +1,5 @@
 import json
+from typing import Counter
 from django.contrib.auth import authenticate, login, logout
 from django.core import paginator
 from django.db import IntegrityError
@@ -6,19 +7,39 @@ from django.db.models import constraints
 from django.db.models.fields import DateTimeField, IntegerField, TimeField
 from django.db.utils import DatabaseError, Error
 from django.http import HttpResponse, HttpResponseRedirect
-from django.http.response import JsonResponse
+from django.http.response import HttpResponseNotFound, JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 import datetime
 
-from .models import User
+from .models import User, Posts
 from .extras import List
 
 # Create your views here.
 def index(request):
-    return render(request, "heritage/index.html")
+
+    if request.method == "POST":
+        list = List.list
+        if request.POST["country"] in list:
+            if not request.POST["title"] or request.POST["title"].isspace() or not request.POST["country"] or not request.POST["content"] or request.POST["content"].isspace():
+                return HttpResponseNotFound("<h1> Error! All the fields are required to be filled ! </h1>")
+            else:
+                entry = Posts(poster = request.user, title = request.POST["title"], content = request.POST["content"], country = request.POST["country"])
+                entry.save()
+                print("testing")
+            
+        else:
+            return HttpResponseNotFound('<h1> The country does not exist! </h1>')    
+        
+        return HttpResponseRedirect(reverse('index')) 
+    else:
+        countries = Posts.objects.all().values_list('country', flat=True).distinct()
+
+        return render(request, "heritage/index.html", {
+            "countries" : countries,
+        })
 
 # Login View
 def login_view(request):
@@ -74,11 +95,13 @@ def register(request):
 
 
 
-
 def newPage(request):
-    
     # List of countries
     list = List.list
     return render(request, "heritage/newPage.html", {
         "list" : list,
     }) 
+
+
+def country_page(request, country):
+    return HttpResponse('<h1> To add posts and info for this country here </h1>')
