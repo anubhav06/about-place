@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+}
+
+.header__info {
+  width: 50%;
+  background-color: #efbaa7;
+  padding: 120px 50px 0 50px;
+  height: 72vh;
+}
+
+.header__img {
+  width: 50%;
+}
+
+.header__info > h1 {
+  font-family: var(--roboto);
+  color: #2f0f0f;
+  font-size: 64px;
+  margin: 0;
+  width: 50%;
+}
+
+.header__info > p {
+  font-family: var(--poppins);
+  color: #424259;
+  font-weight: 400;
+  width: 80%;
+  letter-spacing: 1.1px;
+  font-weight: 500;
+}
+
+.header__info p span > a {
+  font-weight: 700;
+  color: #424259;
+}
+
+.header__img > img {
+  width: 100%;
+  height: 72vh;
+}

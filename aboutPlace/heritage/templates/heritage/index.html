@@ -2,18 +2,37 @@
 {% load static %}
 
 {% block title %}
-    Know your place
+Know the place
 {% endblock %}
 
 {% block body %}
-    <h1>All Pages</h1>
+<!-- <h1>All Pages</h1>
 
-    This will list all the country pages <br>
+This will list all the country pages <br>
 
-    {% for country in countries %}
-        <a href="{% url 'country_page' country %}">
-            {{country}}
-        </a><br>
-    {% endfor %}
+{% for country in countries %}
+<a href="{% url 'country_page' country %}">
+    {{country}}
+</a><br>
+{% endfor %} -->
 
+<header class="header">
+    <div class="header__info">
+        <h1>KNOW THE PLACE</h1>
+        <p>Visiting a country and want to learn more about it or are just curious?
+            Read some interesting articles below written by travelers like you.
+        </p>
+        <p>
+            Have some interesting stories to share?
+            {% if user.is_authenticated %}
+            <span> <a href="{%url 'newpage' %}">Write a post of your own.</a></span>
+            {% else %}
+            <span><a href="{% url 'login' %}">Write your own post.</a></span>
+            {% endif %}
+        </p>
+    </div>
+    <div class="header__img">
+        <img src="{% static 'heritage/header-img.png' %}">
+    </div>
+</header>
 {% endblock %}
