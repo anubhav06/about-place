@@ -6,16 +6,6 @@ Know the place
 {% endblock %}
 
 {% block body %}
-<!-- <h1>All Pages</h1>
-
-This will list all the country pages <br>
-
-{% for country in countries %}
-<a href="{% url 'country_page' country %}">
-    {{country}}
-</a><br>
-{% endfor %} -->
-
 <header class="header">
     <div class="header__info">
         <h1>KNOW THE PLACE</h1>
@@ -36,22 +26,25 @@ This will list all the country pages <br>
     </div>
 </header>
 
-<body >
+<section class="countries">
     {% for country in countries %}
     <!-- Don't change the className from 'countryName', it is used to reference in the API calls -->
-    <a href="{% url 'country_page' country %}">
-        <div class="countryName">
-            {{country}}
-        </div>
-    </a>
+    <div class="countries__country">
+        <a href="{% url 'country_page' country %}">
+            <div class="countryName">
+                {{country}}
+            </div>
+            <p>{{country}}</p>
+        </a>
+    </div>
     {% endfor %}
-    {% if countries %}
-        <script> loaded()</script>
-    {% endif %}
-</body>
+</section>
+{% if countries %}
+<script> loaded()</script>
+{% endif %}
 {% endblock %}
 
 
 {% block script %}
-    <script src="{% static 'heritage/script.js' %}"></script>
+<script src="{% static 'heritage/script.js' %}"></script>
 {% endblock %}

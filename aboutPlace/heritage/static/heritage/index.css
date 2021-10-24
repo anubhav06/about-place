@@ -42,3 +42,35 @@
   width: 100%;
   height: 72vh;
 }
+
+/* countries flag */
+
+.countries {
+  display: flex;
+  width: 90%;
+  margin: 70px auto;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.countries__country {
+  margin: 10px 0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: 300ms ease-in-out;
+}
+
+.countries__country:hover {
+  transform: scale(1.1);
+}
+
+.countries__country a > p {
+  font-family: var(--poppins);
+  color: #424259;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+}
+
+.countries__country a > p:hover {
+  color: black;
+}
