@@ -38,10 +38,10 @@ Know the place
         </a>
     </div>
     {% endfor %}
+    {% if countries %}
+    <script> loaded()</script>
+    {% endif %}
 </section>
-{% if countries %}
-<script> loaded()</script>
-{% endif %}
 {% endblock %}
 
 

@@ -1,9 +1,18 @@
 {% extends "heritage/layout.html" %}
+{% load static %}
 
 {% block body %}
 
     <strong> <h1>  {{country}} </h1> </strong> <br>
-    --------------This place will contain info about the country-----------
+
+    <input class="country" type="hidden" value="{{country}}">
+    <div class="coatOfArms"> </div>
+    <div class="continents"> </div>
+    <div class="currencies-name"> </div>
+    <div class="currencies-symbol"> </div>
+    <div class="flags"> </div>
+    <div class="languages"> </div>
+    <div class="population"> </div>
 
     <hr>
     Place for posts by users: <br><br>
@@ -18,4 +27,12 @@
         </div> <br><br>
     {% endfor %}
 
+    {% if posts %}
+        <script> countryPageLoad() </script>
+    {% endif %}
+
 {% endblock %} 
+
+{% block script %}
+    <script src="{% static 'heritage/script.js' %}"></script>
+{% endblock %}
