@@ -3,36 +3,41 @@
 
 {% block body %}
 
-    <strong> <h1>  {{country}} </h1> </strong> <br>
-
-    <input class="country" type="hidden" value="{{country}}">
-    <div class="coatOfArms"> </div>
-    <div class="continents"> </div>
+<section class="info">
+    <div class="info__name">
+        <h1> {{country}} </h1>
+        <input class="country" type="hidden" value="{{country}}">
+        <div class="coatOfArms"> </div>
+    </div>
+    <!-- <div class="continents"> </div>
     <div class="currencies-name"> </div>
     <div class="currencies-symbol"> </div>
     <div class="flags"> </div>
     <div class="languages"> </div>
-    <div class="population"> </div>
+    <div class="population"> </div> -->
+</section>
+<!-- Place for posts by users: <br><br> -->
 
-    <hr>
-    Place for posts by users: <br><br>
-
+<section class="posts">
     {% for post in posts %}
-        <div>
-            TITLE : {{post.title}} <br>
-            CONTENT : {{post.content}} <br>
-            COUNTRY : {{post.country}} <br>
-            POSTED AT: {{post.timestamp}} <br>
-            POSTED BY: {{post.poster}} <br>
-        </div> <br><br>
+    <div class="posts__post">
+        <h2>{{post.title}}</h2>
+        <p class="content">{{post.content}}</p>
+        <!-- COUNTRY : {{post.country}} <br> -->
+        <div class="post-info">
+            <p class="time"> {{post.timestamp}} </p>
+            <p class="poster">by {{post.poster}} </p>
+        </div>
+    </div>
     {% endfor %}
+</section>
 
-    {% if posts %}
-        <script> countryPageLoad() </script>
-    {% endif %}
+{% if posts %}
+<script> countryPageLoad()</script>
+{% endif %}
 
-{% endblock %} 
+{% endblock %}
 
 {% block script %}
-    <script src="{% static 'heritage/script.js' %}"></script>
+<script src="{% static 'heritage/script.js' %}"></script>
 {% endblock %}
