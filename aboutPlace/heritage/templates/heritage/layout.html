@@ -19,6 +19,7 @@
     <link href="{% static 'heritage/styles.css' %}" rel="stylesheet">
     <link href="{% static 'heritage/index.css' %}" rel="stylesheet">
     <link href="{% static 'heritage/form.css' %}" rel="stylesheet">
+    <link href="{% static 'heritage/countryPage.css' %}" rel="stylesheet">
 
     {% block script %}
     {% endblock %}
@@ -36,11 +37,12 @@
             </form>
 
             {% if user.is_authenticated %}
-                <a href="#"><img src="{% static 'heritage/avatar.svg' %}"></a>
-                <li><a href="{%url 'logout' %}">Log Out</a></li>
+            <a href="#" class="tooltip"><img src="{% static 'heritage/avatar.svg' %}">
+                <span class="tooltiptext">{{user}}</span></a>
+            <li><a href="{%url 'logout' %}">Log Out</a></li>
             {% else %}
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'register' %}">Register</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
             {% endif %}
         </ul>
     </nav>
