@@ -112,7 +112,7 @@ def register(request):
         return render(request, "heritage/register.html")
 
 
-
+@login_required(login_url='/login')
 def newPage(request):
     # List of countries
     list = List.list

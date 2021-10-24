@@ -47,24 +47,24 @@ function countryPageFetch(
     .then((response) => {
       console.log(response);
       // R at end means response variable
-      var coatOfArmsR = response[0].coatOfArms.png;
-      var continentsR = response[0].continents[0];
-      var currenciesNameR =
-        response[0].currencies[Object.keys(response[0].currencies)[0]].name;
-      var currenciesSymbolR =
-        response[0].currencies[Object.keys(response[0].currencies)[0]].symbol;
-      var flagsR = response[0].flags.png;
-      var languagesR = response[0].languages;
-      var populationR = response[0].population;
+    //  var coatOfArmsR = response[0].coatOfArms.png;
+    //  var continentsR = response[0].continents[0];
+    //  var currenciesNameR =
+    //    response[0].currencies[Object.keys(response[0].currencies)[0]].name;
+    //  var currenciesSymbolR =
+    //    response[0].currencies[Object.keys(response[0].currencies)[0]].symbol;
+    //  var flagsR = response[0].flags.png;
+    //  var languagesR = response[0].languages;
+    //  var populationR = response[0].population;
 
       //Change the elements inner HTML to the fetched value
       coatOfArms.innerHTML =
         "<img src='" + coatOfArmsR + "' height='100' width='auto'>";
-      continents.innerHTML = `${continentsR}`;
-      currenciesName.innerHTML = `${currenciesNameR}`;
-      currenciesSymbol.innerHTML = `${currenciesSymbolR}`;
-      flags.innerHTML = "<img src='" + flagsR + "' height='100' width='auto'>";
-      population.innerHTML = `${populationR}`;
+    //  continents.innerHTML = `${continentsR}`;
+    //  currenciesName.innerHTML = `${currenciesNameR}`;
+    //  currenciesSymbol.innerHTML = `${currenciesSymbolR}`;
+    //  flags.innerHTML = "<img src='" + flagsR + "' height='100' width='auto'>";
+    //  population.innerHTML = `${populationR}`;
     });
 }
 
