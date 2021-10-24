@@ -44,3 +44,26 @@
 .posts__post .post-info > p {
   font-size: 12px;
 }
+
+/* media queries */
+@media only screen and (max-width: 768px) {
+  .info {
+    width: 95%;
+  }
+
+  .info__name > h1 {
+    font-size: 36px;
+  }
+
+  .posts {
+    width: 95%;
+  }
+
+  .posts__post > h2 {
+    font-size: 24px;
+  }
+
+  .posts__post .content {
+    font-size: 14px;
+  }
+}

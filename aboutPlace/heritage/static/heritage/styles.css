@@ -33,7 +33,7 @@ a:visited {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 30px;
+  padding: 0 5%;
   font-family: var(--roboto);
   border-bottom: 2px solid #f3f3f3;
 }
@@ -113,7 +113,26 @@ a:visited {
   right: 105%;
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+@media only screen and (max-width: 450px) {
+  .nav__logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+  }
+
+  .nav__logo > a {
+    font-size: 28px;
+  }
+
+  .nav__links {
+    padding-left: 0;
+  }
+
+  .nav__links form input {
+    display: none;
+  }
 }
